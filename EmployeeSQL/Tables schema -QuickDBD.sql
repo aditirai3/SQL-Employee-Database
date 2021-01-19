@@ -63,5 +63,24 @@ REFERENCES "employees" ("emp_no");
 
 ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "employees" ("emp_no");
-
+select * from dept_emp
 --select * from employees, departments, dept_emp, dept_manager, salaries, titles
+-- List employee number, last name, first name, sex, and salary for each employee
+SELECT employees.emp_no, employees.last_name, employees.first_name, employees.sex, salaries.salary
+FROM salaries
+INNER JOIN employees on
+employees.emp_no = salaries.emp_no;
+--List first name, last name, and hire date for employees who were hired in 1986
+SELECT first_name, last_name, hire_date from employees
+WHERE hire_date >= '1986-01-01' and hire_date <= '1986-12-31'
+--List the manager of each department: dep no., dep name, the manager's employee no., last name, first name
+SELECT dept_manager.dept_no, departments.dept_name, employees.emp_no, employees.last_name, employees.first_name
+FROM dept_manager JOIN employees
+ON dept_manager.emp_no = employees.emp_no
+JOIN departments ON
+departments.dept_no = dept_manager.dept_no;
+--List the department of each employee: employee number, last name, first name, and department name
+SELECT employees.emp_no, employees.last_name, employees.first_name, dept_emp.dept_no, departments.dept_name
+FROM dept_emp
+JOIN employees on employees.emp_no = dept_emp.emp_no
+JOIN departments on dept_emp.dept_no = departments.dept_no;
