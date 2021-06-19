@@ -1,6 +1,6 @@
-# sql-challenge
+# SQL Employee Database
 
-Use SQL to design the tables to hold data in the CSVs, import the CSVs into a SQL database, and answer questions about the data
+Use SQL and entity relationship diagram (ERD) to design the tables to hold data in the CSVs, import the CSVs into a SQL database, and answer questions about the data
 ## Data Modeling
 
 Inspect the CSVs and sketch out an ERD of the tables using Quick Database Diagrams.
